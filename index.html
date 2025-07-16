@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pelukan Virtual 🤗</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f7ff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .hug {
+      font-size: 2rem;
+      white-space: pre-wrap;
+      margin-bottom: 20px;
+    }
+    .message {
+      font-size: 1.2rem;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #5c8df6;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="hug" id="hug">(づ｡◕‿‿◕｡)づ</div>
+  <div class="message" id="message">Klik tombol di bawah untuk pelukan virtual</div>
+  <button onclick="startHug()">Mulai Pelukan 🤗</button>  <script>
+    const hugs = [
+      "(づ｡◕‿‿◕｡)づ\nPelukan website...",
+      "(づ￣ ³￣)づ\nNih Peluk dari jauh, karna gk sempet meluk semalem 🤗",
+      "(づ｡♥‿‿♥｡)づ\nSemangat beb!",
+      "(づ｡•́‿•̀｡)づ\nPeople come and go itu bukan cuman kehilangan teman doang ya ternyata, tapi orang yang kita sayangi juga...",
+      "(づ｡◕‿‿◕｡)づ\nGatau mau ngetik apa lagi semoga kamu terhibur dengan ini ya beb hwaitinggg."
+    ];
+
+    const finalMessage = \n❤ Udah dipeluk virtual yaa~ kamu gak sendiri.\n🌈 Besok mungkin masih berat, tapi pelan-pelan bisa sembuh.\n✨ Semangat ya beb.;
+
+    let index = 0;
+    function startHug() {
+      const hugEl = document.getElementById('hug');
+      const msgEl = document.getElementById('message');
+
+      const interval = setInterval(() => {
+        hugEl.textContent = hugs[index];
+        msgEl.textContent = '';
+        index++;
+        if (index === hugs.length) {
+          clearInterval(interval);
+          setTimeout(() => {
+            msgEl.textContent = finalMessage;
+          }, 2000);
+        }
+      }, 2000);
+    }
+  </script></body>
+</html>
